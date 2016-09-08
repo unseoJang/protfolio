@@ -5,6 +5,10 @@
 		<title></title>
 	</head>
 	<body>
-		Hello World!
+		<script>
+			var cars = ['sonata','spark','malibu','sorento'];
+			var rev = heroes.reverse();
+			conlole.log(rev);
+		</script>
 	</body>
 </html>
