@@ -9,6 +9,10 @@
 			var cars = ['sonata','spark','malibu','sorento'];
 			var rev = heroes.reverse();
 			conlole.log(rev);
+			var buttons = documnet.getElementsByClass("b")
+			for (var i = 0, i < = 9; i++){
+				cars()
+			};
 		</script>
 	</body>
 </html>
