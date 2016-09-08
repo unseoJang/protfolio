@@ -6,13 +6,14 @@
 	</head>
 	<body>
 		<script>
-			var cars = ['sonata','spark','malibu','sorento'];
-			var rev = heroes.reverse();
-			conlole.log(rev);
-			var buttons = documnet.getElementsByClass("b")
-			for (var i = 0, i < = 9; i++){
-				cars()
+			var a = ['포도','사과','딸기', '바나나'];
+
+			for(var i in array){
+
+				alert(array[i]);
 			};
+
+
 		</script>
 	</body>
 </html>
