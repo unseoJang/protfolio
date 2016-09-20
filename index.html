@@ -6,11 +6,25 @@
 	</head>
 	<body>
 		<script>
-			var unseo = ['930212', '01050583834', 'seoul'];
+			var profile = ['이름', '생년월일', '이메일'];
 
-			unseo.push('publisher');
-			unseo[4] = 'man';
-			console.log(unseo);
+			var unseo = {};
+			unseo.name = '장운서';
+			unseo.birthday = '93년 02월 12일';
+			unseo.email = 'qqbck123@naver.com';
+
+			var data = [];
+			data.push(unseo.name)
+			data.push(unseo.birthday)
+			data.push(unseo.email)
+			
+
+			function viewProfile(){
+				for(var i=0; i<profile.length; i++){
+					console.log(i+1 + ' ' + profile[i] + ' : ' + data[i])
+				}
+			}
+			viewProfile();
 		</script>
 	</body>
 </html>
