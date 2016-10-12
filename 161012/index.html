@@ -1,8 +1,7 @@
-
 <!doctype html>
 <html>
 	<head>
-		<title>Å¸ÀÚ¿¬½À</title>
+		<title>íƒ€ìžì—°ìŠµ</title>
 		<meta name="generator" content="editplus">
 		<meta name="author" content="">
 		<meta name="keywords" content="">
@@ -32,17 +31,17 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script>
 			/*
-				±â´É
-				0. ·£´ýÀ¸·Î ¹®Àå »Ñ·ÁÁÖ±â
-				1. »ç¿ëÀÚÀÇ Å°º¸µå ÀÔ·Â
-				2. Å°ÄÚµå µé¾î¿Ã ¶§¸¶´Ù È®ÀÎ
-				3. Æ²¸®¸é »¡°£»ö ¸ÂÀ»¶§±îÁö »¡°£»ö
-				4. ÇÑ¹®ÀåÀ» Á¤È®È÷ ¾´ ÈÄ ¿£ÅÍÄ¡¸é Á¤È®µµ/Æò±ÕÁ¤È®µµ/ÇöÀç¼Óµµ/ÃÖ°í¼Óµµ ÃøÁ¤
+				ê¸°ëŠ¥
+				0. ëžœë¤ìœ¼ë¡œ ë¬¸ìž¥ ë¿Œë ¤ì£¼ê¸°
+				1. ì‚¬ìš©ìžì˜ í‚¤ë³´ë“œ ìž…ë ¥
+				2. í‚¤ì½”ë“œ ë“¤ì–´ì˜¬ ë•Œë§ˆë‹¤ í™•ì¸
+				3. í‹€ë¦¬ë©´ ë¹¨ê°„ìƒ‰ ë§žì„ë•Œê¹Œì§€ ë¹¨ê°„ìƒ‰
+				4. í•œë¬¸ìž¥ì„ ì •í™•ížˆ ì“´ í›„ ì—”í„°ì¹˜ë©´ ì •í™•ë„/í‰ê· ì •í™•ë„/í˜„ìž¬ì†ë„/ìµœê³ ì†ë„ ì¸¡ì •
 			*/
 			$(document).ready(function(){
 				init();
 
-				/* Å°º¸µå¸¦ ´©¸¦ ¶§ ¸¶´Ù Ã¼Å© */
+				/* í‚¤ë³´ë“œë¥¼ ëˆ„ë¥¼ ë•Œ ë§ˆë‹¤ ì²´í¬ */
 				$(window).keyup(function(){
 					inputStr = $('.typing .user input').val();
 					strChk();
@@ -56,7 +55,7 @@
 				randomStr();
 			}
 
-			/* ·£´ýÀ¸·Î ¹®Àå »Ñ·ÁÁÖ±â */
+			/* ëžœë¤ìœ¼ë¡œ ë¬¸ìž¥ ë¿Œë ¤ì£¼ê¸° */
 			var randomStrNum;
 			function randomStr(){
 				randomStrNum = Math.floor(Math.random() * newStr.length); //0~(lentgh-1);
@@ -69,9 +68,9 @@
 				'zxcvb'
 			];
 
-			/* ÇÑ ±ÛÀÚ, ÇÑ ±ÛÀÚ Ã¼Å©ÇÏ±â */
-			var inStr,		// ·£´ýÇÏ°Ô ³ëÃâµÈ ½ºÆ®¸µ
-				inputStr,	// »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ½ºÆ®¸µ
+			/* í•œ ê¸€ìž, í•œ ê¸€ìž ì²´í¬í•˜ê¸° */
+			var inStr,		// ëžœë¤í•˜ê²Œ ë…¸ì¶œëœ ìŠ¤íŠ¸ë§
+				inputStr,	// ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ ìŠ¤íŠ¸ë§
 				x=''; 	
 			function strChk(){
 				inStr = newStr[randomStrNum];
@@ -100,7 +99,7 @@
 				<div class="status">
 					<ul>
 						<li>
-							<div class="tit">Á¤È®µµ</div>
+							<div class="tit">ì •í™•ë„</div>
 							<div class="progress">
 								<div class="progress_bar">
 									<span style="width:10%;"></span>
@@ -109,7 +108,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="tit">Æò±Õ Á¤È®µµ</div>
+							<div class="tit">í‰ê·  ì •í™•ë„</div>
 							<div class="progress">
 								<div class="progress_bar">
 									<span style="width:10%;"></span>
@@ -118,21 +117,21 @@
 							</div>
 						</li>
 						<li>
-							<div class="tit">ÇöÀç¼Óµµ</div>
+							<div class="tit">í˜„ìž¬ì†ë„</div>
 							<div class="progress">
 								<div class="progress_bar">
 									<span style="width:10%;"></span>
 								</div>
-								<span class="txt">23Å¸/ºÐ</span>
+								<span class="txt">23íƒ€/ë¶„</span>
 							</div>
 						</li>
 						<li>
-							<div class="tit">ÃÖ°í ¼Óµµ</div>
+							<div class="tit">ìµœê³  ì†ë„</div>
 							<div class="progress">
 								<div class="progress_bar">
 									<span style="width:10%;"></span>
 								</div>
-								<span class="txt">23Å¸/ºÐ</span>
+								<span class="txt">23íƒ€/ë¶„</span>
 							</div>
 						</li>
 					</ul>
@@ -140,4 +139,4 @@
 			</div>
 		</div>
 	</body>
-</html>
+</html> 
