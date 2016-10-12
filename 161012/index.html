@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 	<head>
 		<title>타자연습</title>
@@ -39,19 +39,29 @@
 				4. 한문장을 정확히 쓴 후 엔터치면 정확도/평균정확도/현재속도/최고속도 측정
 			*/
 			$(document).ready(function(){
+				viewArea = $('.typing .string_box .view');
+				inputArea = $('.typing .user input');
 				init();
+
 
 				/* 키보드를 누를 때 마다 체크 */
 				$(window).keyup(function(){
-					inputStr = $('.typing .user input').val();
-					strChk();
+					inputStr = inputArea.val();
+					if(!result){
+						strChk();		
+					}else {
+						if(event.keyCode == 13){ // enter 클릭.
+							init();
+						}
+					}
 				});
 			});
 
-			var view = $('.typing .string_box .view');
-
+			/* 초기화 함수 */
+			var viewArea, inputArea;
 			function init(){
-				view = $('.typing .string_box .view');
+				result = false;
+				inputArea.val('');
 				randomStr();
 			}
 
@@ -59,20 +69,20 @@
 			var randomStrNum;
 			function randomStr(){
 				randomStrNum = Math.floor(Math.random() * newStr.length); //0~(lentgh-1);
-				view.append(newStr[randomStrNum]);
+				viewArea.append(newStr[randomStrNum]);
 			}
 			var newStr = [
-				'12345',
-				'qwert',
-				'asdfg',
-				'zxcvb'
+				'동해물과 백두산이 마르고 닳도록',
+				'하느님이 보우하사 우리 나라 만세',
+				'무궁화 삼천리 화려강산',
+				'대한사람 대한으로 길이 보전하세'
 			];
 
 			/* 한 글자, 한 글자 체크하기 */
 			var inStr,		// 랜덤하게 노출된 스트링
-				inputStr,	// 사용자가 입력한 스트링
-				x=''; 	
+				inputStr;	// 사용자가 입력한 스트링
 			function strChk(){
+				var x='';
 				inStr = newStr[randomStrNum];
 				for(var i=0;i<inStr.length;i++){
 					if(inStr.substring(i,i+1)!=inputStr.substring(i,i+1) && i<inputStr.length){
@@ -80,12 +90,19 @@
 					}else {
 						x+=inStr.substring(i,i+1);
 					}
-					console.log(x)
 				}
-				view.html(x);
+				viewArea.empty().append(x);
+				strResult();
 			}
 
-			
+			/* 스트링 올바른지 체크하기 */
+			var result = false; // 맞으면 true, 틀리면 false
+			function strResult(){
+				if(inStr == inputStr) result = true;
+				else result = false;
+				console.log(result)
+				return result;
+			}
 			
 		</script>
 	</head>
