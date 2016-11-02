@@ -1,12 +1,12 @@
 $(window)
 	.scroll(onScroll)
 	.load(function(){
-		init();
+		scrollInit();
 });
 
 
 var winH;
-function init(){
+function scrollInit(){
 	console.log('start!')
 
 	winH = $(window).height();
@@ -15,7 +15,6 @@ function init(){
 
 	$('#wrap').css('height',winH+$('#container').height())
 }
-
 
 var scTop,	
 	introEndChk=false;
