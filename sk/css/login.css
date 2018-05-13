@@ -1,0 +1,17 @@
+.page_tit{}
+.page_tit h2{margin: 0 auto;font-size:38px;color:#554d47;background:url('./../img/login.png')no-repeat 587px;letter-spacing:-0.2px; line-height: 36px;display:block;padding:53px 0 52px;text-align: left;width: 960px;}
+.content_wrap{margin:0 auto; width: 960px;}
+.content_wrap > div {padding:70px 0 52px;}
+.content_wrap > div > div.content_box{border:1px solid #c4c4c4; padding:0 221px;margin:0 auto;}
+
+.menu_mypage{padding-top: 50px;}
+.content_wrap div div.tit{font-size:15px;font-weight: bold;color:#000;letter-spacing:-0.2px;padding-bottom:10px;border-bottom:2px solid #c4c4c4;margin-bottom:33px;}
+.content_box form ul li{padding-bottom: 38px;margin-top: 0;}
+.content_box form ul li label{font-size:15px;color:#616161;line-height: 40px;letter-spacing:-0.2px;display:block; float:left;width: 152px;}
+.content_box form ul li input{background:#f6f7f8; border:1px solid #dbdbdb; color:#616161; font-size:15px; letter-spacing:-0.2px; line-height: 38px; padding:0 11px; width: 340px;}
+.content_box form div.btn_remember_id {border-bottom:2px solid #c4c4c4; text-align: right; letter-spacing:-0.2px; margin:20px 0 0; padding:0 0 20px;}
+.content_box form div.btn_remember_id a{background:url('./../img/ico_member_login_rememberID.png')no-repeat 0 0;color:#666;font-size:15px;background-position:0 100%;display:inline-block;line-height: 24px;padding:0 0 0 29px;}
+
+.btn_edit{text-align: center;padding:30px 0 50px;}
+.btn_edit button{background-color:#e51837;border-radius:3px; box-shadow:1px 4px 3px 2px #e5e5e5;width:210px;height:50px;}
+.btn_edit button span{color:#fff;font-size:18px;}

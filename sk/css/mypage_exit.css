@@ -1,0 +1,19 @@
+div.wrap{padding-bottom: 60px;min-height: 672px;}
+.page_tit{}
+.page_tit h2{margin: 0 auto;font-size:38px;color:#554d47;background:url('./../img/member_history.png')no-repeat 587px;letter-spacing:-0.2px; line-height: 36px;display:block;padding:53px 0 52px;text-align: left;font-weight: bold; width: 960px;}
+.content_wrap{margin:0 auto; width: 960px;}
+
+.content_wrap > div > div.content_box{border:2px solid #c4c4c4;margin:0 auto;overflow: hidden;}
+.content_wrap div div.tit{font-size:15px;font-weight: bold;color:#000;letter-spacing:-0.2px;padding-bottom:10px;border-bottom:2px solid #c4c4c4;margin-bottom:33px;}
+.content_box > img{padding-top: 84px;}
+.content_box > div strong{font-size:24px;font-weight: bold;color:#616161;line-height: 30px;letter-spacing:-0.2px;margin:34px 0 0;display:inline-block;}
+.content_tit{text-align: left;padding:37px 0 0;color:#202020;font-weight: bold;font-size:20px;letter-spacing:-0.2px;float:left;padding-left:37px;}
+.box_wrap{margin:0 auto; width:516px;}
+.box_wrap > p{font-size:15px; color:#000; font-weight:bold; letter-spacing:-1.0px;padding:50px 0 18px;}
+
+.acept a{background:url('./../img/ico_member_login_rememberID.png')no-repeat; font-size:15px;display: inline-block; color:#666;line-height:24px; padding:0 0 0 29px;text-align: right;}
+.acept ul li{padding: 21px 0 40px; border-bottom:2px solid #c4c4c4;}
+.password label{font-size:15px;color:#616161;letter-spacing:-0.2px;}
+.password label input{background:#f6f7f8;border:1px solid #dbdbdb; font-size:15px;padding-left:12px; height:38px; width:346px;}
+.exit_wrap{text-align: center;padding:;}
+.exit_wrap button{margin:30px 0 50px;border:1px solid #ca1531;border-radius:5px;box-shadow:#e5e5e5 0 8px 3px; background:#e51837;color:#fff;padding:17px 0 15px;font-size:18px; width:208px;}
