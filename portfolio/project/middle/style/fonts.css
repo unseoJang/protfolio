@@ -1,0 +1,73 @@
+@charset "utf-8"; 
+
+@font-face {
+ font-family: 'NanumGothic';
+ src: url('./../fonts/nanum/NanumGothic.eot');
+ src: local(NanumGothic),
+      url('./../fonts/nanum/NanumGothic.eot?#iefix') format('embedded-opentype'),
+      url('./../fonts/nanum/NanumGothic.woff') format('woff'),
+      url('./../fonts/nanum/NanumGothic.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NanumBarunpen';
+ src: url(./../fonts/nanum/NanumBarunpenR.eot);
+ src: local(NanumBarunpen),
+      url(./../fonts/nanum/NanumBarunpenR.eot?#iefix) format('embedded-opentype'),
+      url(./../fonts/nanum/NanumBarunpenR.woff) format('woff'),
+      url(./../fonts/nanum/NanumBarunpenR.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumBarunGothic';
+ src: url(./../fonts/nanum/NanumBarunGothicWeb.eot);
+ src: local(NanumBarunGothic),
+      url(./../fonts/nanum/NanumBarunGothicWeb.eot?#iefix) format('embedded-opentype'),
+      url(./../fonts/nanum/NanumBarunGothicWeb.woff) format('woff'),
+      url(./../fonts/nanum/NanumBarunGothicWeb.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumBareunGothicUltraLight';
+ src: url(./../fonts/nanum/NanumBarunGothicWebUltraLight_11172.eot);
+ src: local(NanumBareunGothicUltraLight),
+      url(./../fonts/nanum/NanumBarunGothicWebUltraLight_11172.eot?#iefix) format('embedded-opentype'),
+      url(./../fonts/nanum/NanumBarunGothicWebUltraLight_11172.woff) format('woff'),
+      url(./../fonts/nanum/NanumBarunGothicWebUltraLight_11172.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumMyeongjo';
+ src: url(./../fonts/nanum/NanumMyeongjo.eot);
+ src: local(NanumMyeongjo),
+      url(./../fonts/nanum/NanumMyeongjo.eot?#iefix) format('embedded-opentype'),
+      url(./../fonts/nanum/NanumMyeongjo.woff) format('woff'),
+      url(./../fonts/nanum/NanumMyeongjo.ttf) format('truetype');
+}
+
+@font-face {
+ font-family: 'Bebas';
+ src: url('./../fonts/bebas/BebasNeuewebfont.eot');
+ src: url('./../fonts/bebas/BebasNeuewebfont.eot?#iefix') format('embedded-opentype'),
+      url('./../fonts/bebas/BebasNeuewebfont.woff') format('woff'),
+      url('./../fonts/bebas/BebasNeuewebfont.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'Bebas_bold';
+ src: url('./../fonts/bebas/BEBASNEUEBOLD.woff');
+}
+
+@font-face {
+  font-family: 'Chelsea Market';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Chelsea Market'), 
+	   local('ChelseaMarket-Regular'), 
+	   url(https://fonts.gstatic.com/s/chelseamarket/v4/qSdzwh2A4BbNemy78sJLfBuGTTrKvbsxetT9oPA6Q9g.woff2) format('woff');
+	   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Chelsea Market';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Chelsea Market'), 
+	   local('ChelseaMarket-Regular'), 
+	   url(https://fonts.gstatic.com/s/chelseamarket/v4/qSdzwh2A4BbNemy78sJLfGumFyKY0eCdXHjD5427TIo.woff2) format('woff');
+	   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}

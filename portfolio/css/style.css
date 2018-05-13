@@ -1,0 +1,936 @@
+/***********************************
+
+	UNSEO JANG's 1st Portfolio
+
+***********************************/
+/* common */
+
+
+
+body {
+    background: #0c0d0d;
+    color: #efefed;
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    font-size: 12px;
+    overflow-x: hidden;
+    min-width: 1280px;
+    width: 100%;
+}
+.valign {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.valign .middle {
+    display: table-cell;
+    vertical-align: middle;
+    /* 세로기준가운데정렬 */
+    
+    width: 100%;
+    height: 100%;
+}
+h2 {
+    font-size: 40px;
+    line-height: 31px;
+    letter-spacing: -0.2px;
+    color: #989898;
+    text-align: right;
+    border-right: 8px solid #594c60;
+    text-shadow: 0 2px 4px #000;
+    padding: 0 20px;
+    margin: 0 0 49px;
+    clear: both;
+}
+/* navigation */
+
+header {
+
+}
+header nav {
+    background: rgba(0, 0, 0, .8);
+    display: none;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+header ul {
+
+    }
+header ul li {
+    margin-top: 50px;
+}
+header ul li a {
+    font-size: 40px;
+    font-weight: 800;
+}
+header ul li a:hover {
+    transition: all 1000ms;
+    color: #dd455e;
+}
+header .btns a {
+    background-repeat: no-repeat;
+    display: block;
+    text-indent: 2000%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 159px;
+    height: 150px;
+    z-index: 100;
+    transition: background 800ms;
+}
+header .btns a.btn_open {
+    background-image: url('./../img/btn_navi.png');
+    position: fixed;
+}
+header .btns a.btn_open:hover {
+    background-image: url('./../img/btn_navi_active.png');
+}
+header .btns a.btn_close {
+    background-image: url('./../img/btn_navi_close.png');
+    display: none;
+    opacity: 0;
+}
+header .btns a.btn_close:hover {
+    background-image: url('./../img/btn_navi_close_active.png');
+}
+/* wrap */
+
+#wrap {
+    width: 100%;
+    min-width: 1280px;
+    max-width: 2560px;
+}
+/* intro */
+
+#intro {
+    background: #0c0d0d url('./../img/bg_intro.gif');
+    background-size: auto 100%;
+    overflow: hidden;
+    position:fixed;
+    
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index:2;
+}
+#intro > div {
+    height: 100vh;
+    /* vh = viewport height */
+    position: relative;
+    z-index: 2;
+}
+#intro > div.valign{
+    background:url('./../img/bg_stars.png') no-repeat center 0;
+    background-size:100% auto;
+}
+#intro .tit {
+    text-align: center
+}
+#intro .charactor {
+    background: rgba(0, 0, 0, 1);
+    /* For browsers that do not support gradients */
+    
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0), #1b191c, #322428, #2e2731);
+    /* For Safari 5.1 to 6.0 */
+    
+    background: -o-linear-gradient(rgba(0, 0, 0, 0), #1b191c, #322428, #2e2731);
+    /* For Opera 11.1 to 12.0 */
+    
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0), #1b191c, #322428, #2e2731);
+    /* For Firefox 3.6 to 15 */
+    
+    background: linear-gradient(rgba(0, 0, 0, 0), #1b191c, #322428, #2e2731);
+    /* Standard syntax */
+    
+    position: relative;
+    z-index: 3;
+}
+#intro .charactor .slider {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    width: 84.375vh;
+    /* 1280px:1080px = 100vh:84.375vh */
+    
+    height: 84.375vh;
+}
+#intro .charactor .slider .cont {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+}
+#intro .charactor .slider .cont ul {
+    overflow: hidden;
+}
+#intro .charactor .slider .cont ul li {
+    box-sizing: border-box;
+    float: left;
+    padding: 0 60px;
+}
+#intro .charactor .slider .cont ul li .tit {
+    background: url('./../img/bg_intro_slider_tit.png') no-repeat center center;
+    background-size: auto 100%;
+    font-size: 140px;
+    font-size: 10.9375vh;
+    font-weight: bold;
+    letter-spacing: -0.2px;
+    text-shadow: 5px 5px #000;
+    padding: 29px 0 33px;
+    padding: 2.265625vh 0 2.578125vh;
+}
+#intro .charactor .slider .cont ul li .translate {
+    font-family: 'Nanum Myeongjo', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -0.2px;
+    color: #baabc2;
+    display: block;
+    margin: 40px 0 0;
+}
+#intro .charactor .slider .cont ul li p {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    color: #989898;
+    letter-spacing: -0.2px;
+    margin-top: 45px;
+}
+#intro .charactor .slider .btns .btns_circle ul li {
+    padding: 20px 0 0;
+    margin: 0 0 0 -20px;
+    transform-origin: 50% 100%;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    width: 40px;
+    height: 42.1875vh;
+}
+#intro .charactor .slider .btns .btns_circle ul li:nth-child(1) {
+    transform: rotate(0);
+}
+#intro .charactor .slider .btns .btns_circle ul li:nth-child(2) {
+    transform: rotate(72deg);
+}
+#intro .charactor .slider .btns .btns_circle ul li:nth-child(3) {
+    transform: rotate(144deg);
+}
+#intro .charactor .slider .btns .btns_circle ul li:nth-child(4) {
+    transform: rotate(216deg);
+}
+#intro .charactor .slider .btns .btns_circle ul li:nth-child(5) {
+    transform: rotate(288deg);
+}
+#intro .charactor .slider .btns .btns_circle ul li a {
+    background: #efeeee;
+    border: 8px solid #d0bdc0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 400ms;
+}
+#intro .charactor .slider .btns .btns_circle ul li a:hover {
+    background: #000;
+    border: 14px solid #da465e;
+}
+#intro .charactor .slider .btns .btns_circle ul li.active a,
+#intro .charactor .slider .btns .btns_circle ul li.active a:hover {
+    background: #fff;
+    border: 4px solid #da465e;
+}
+#intro .charactor .slider .btns .progress_circle {
+    margin: -7.5px 0 0 -7.5px;
+}
+#intro .charactor .slider .btns .controlor a {
+    background: url('./../img/btn_intro_slider.png') no-repeat;
+    display: block;
+    text-indent: 2000px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: -82px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 105px;
+    height: 164px;
+    transition: background 800ms;
+}
+#intro .charactor .slider .btns .controlor a.prev {
+    background-image: url('./../img/btn_intro_slider_prev.png');
+    margin-left: -640px;
+}
+#intro .charactor .slider .btns .controlor a.next {
+    background-image: url('./../img/btn_intro_slider_next.png');
+    margin-left: 535px;
+}
+#intro .charactor .slider .btns .controlor a.prev:hover {
+    background-image: url('./../img/btn_intro_slider_prev_active.png');
+}
+#intro .charactor .slider .btns .controlor a.next:hover {
+    background-image: url('./../img/btn_intro_slider_next_active.png');
+}
+#intro .charactor .slider .btns .controlor a.prev.disabled,
+#intro .charactor .slider .btns .controlor a.prev.disabled:hover {
+    background-image: url('./../img/btn_intro_slider_prev_disabled.png');
+}
+#intro .charactor .slider .btns .controlor a.next.disabled,
+#intro .charactor .slider .btns .controlor a.next.disabled:hover {
+    background-image: url('./../img/btn_intro_slider_next_disabled.png');
+}
+#intro .charactor .slider .btns .progress_circle canvas {
+    width:100% !important;
+    height:100% !important;
+}
+/* ----------------------------------------- */
+
+#intro .planet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+#intro .planet img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+#intro .planet .earth {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -305px 0 0 -730.5px;
+    z-index: 1;
+}
+
+#intro .planet .earth img:first-child {
+    position: static;
+    animation: rotatePlanet 400s linear infinite alternate;
+}
+@keyframes rotatePlanet {
+    0%   {transform:rotate(0deg);}
+    50% {transform:rotate(360deg);}
+    100% {transform:rotate(0deg);}
+}
+#intro .planet .earth img:last-child {
+    left: 0;
+    top: 0;
+}
+#intro .planet .light_bg .pink {
+    margin: -1440px 0 0 -1280px;
+}
+#intro .planet .light_bg .white {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -365px 0 0 -734.5px;
+    width: 0;
+    height: 1534px;
+}
+#intro .planet .light_bg .white img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1469px;
+    height: 1534px;
+}
+#intro .planet .light .light_source_05 {
+    margin: -1400px 0 0 -1000px;
+}
+#intro .planet .light .light_source_04 {
+    margin: -790px 0 0 -400px;
+}
+#intro .planet .light .light_source_03 {
+    margin: -570px 0 0 -135px;
+}
+#intro .planet .light .light_source_02 {
+    margin: -530px 0 0 -110px;
+}
+#intro .planet .light .light_source_01 {
+    margin: -410px 0 0 70px;
+}
+#intro .planet .light_heart .light_heart_01 {
+    margin: -520px 0 0 0px;
+}
+#intro .planet .light_heart .light_heart_02 {
+    margin: -305px 0 0 250px;
+}
+#intro .planet .light_bg img.pink {
+    opacity: 0;
+}
+#intro .planet .light_bg .white {
+    width: 0;
+}
+#intro .planet .light img,
+#intro .planet .light_heart img {
+    opacity: 0;
+    transform: scale(0);
+}
+#intro .planet.planet_ani .light_bg .white {
+    transition: all 800ms;
+    width: 1469px;
+}
+#intro .planet.planet_ani .light_bg .pink {
+    transition: all 2400ms;
+    opacity: 1
+}
+#intro .planet.planet_ani .light .light_source_05 {
+    transition: all 400ms 2400ms;
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: 65% 80%;
+}
+#intro .planet.planet_ani .light .light_source_04 {
+    transition: all 400ms 2000ms;
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: 60% 50%;
+}
+#intro .planet.planet_ani .light .light_source_03 {
+    transition: all 400ms 1600ms;
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: 75% 50%;
+}
+#intro .planet.planet_ani .light .light_source_02 {
+    transition: all 500ms 1200ms;
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: 75% 50%;
+}
+#intro .planet.planet_ani .light .light_source_01 {
+    transition: all 600ms 600ms;
+    opacity: 1;
+    transform: scale(1);
+}
+#intro .planet.planet_ani .light_heart .light_heart_01 {
+    transition: all 800ms 2400ms;
+    transform: scale(3);
+    opacity: 1;
+}
+#intro .planet.planet_ani.re .light_heart .light_heart_01 {
+    transition: all 800ms;
+    transform: scale(1);
+}
+#intro .planet.planet_ani.re .light_heart .light_heart_02 {
+    transition: all 600ms 800ms;
+    opacity: 1;
+    transform: scale(1);
+}
+
+#intro .planet .star span {
+    animation-name: uni_star;
+    animation-iteration-count: infinite;
+    position:absolute;left:0;top:0;}
+#intro .planet .star span:nth-child(1) {animation-delay:1s;animation-duration:0.8s;transform:scale(1);left:10%;top:10%;}
+#intro .planet .star span:nth-child(2) {animation-delay:200ms;animation-duration:2s;transform:scale(1.2);left:90%;top:30%;}
+#intro .planet .star span:nth-child(3) {animation-delay:1.4s;animation-duration:3s;transform:scale(0.4);left:60%;top:16%;}
+#intro .planet .star span:nth-child(4) {animation-delay:600ms;animation-duration:1.8s;transform:scale(0.6);left:30%;top:40%;}
+#intro .planet .star span:nth-child(5) {animation-duration:1.2s;transform:scale(1);left:65%;top:2%;}
+#intro .planet .star span:nth-child(6) {animation-delay:600ms;animation-duration:1.8s;transform:scale(0.6);left:30%;top:40%;}
+
+#intro .planet .star span:nth-child(7) {animation-delay:1000ms;animation-duration:1.1s;transform:scale(0.7);left:22%;top:55%;}
+#intro .planet .star span:nth-child(8) {animation-delay:110ms;animation-duration:1.2s;transform:scale(0.5);left:42%;top:4%;}
+#intro .planet .star span:nth-child(9) {animation-delay:1500ms;animation-duration:1.3s;transform:scale(0.1);left:62%;top:20%;}
+#intro .planet .star span:nth-child(10) {animation-delay:700ms;animation-duration:1.4s;transform:scale(1.1);left:82%;top:60%;}
+
+@keyframes uni_star{
+    0% {opacity:1;}
+    50% {opacity:0;}
+    100% {opacity:1;} 
+}
+
+#container {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+}
+.about {
+    /*background-color: -webkit-linear-gradient(left top,#594d69,#1a171a);
+  	background-color:     -ms-linear-gradient(left top,#594d69,#1a171a);
+  	background-color:      -o-linear-gradient(left top,#594d69,#1a171a);
+  	background-color:         linear-gradient(left top,#594d69,#1a171a);*/
+    
+    background: #1a171a url('./../img/bg_about.png') no-repeat center 0;
+    background-size: 2560px auto;
+    text-align: right;
+}
+.about > div {
+    box-sizing: border-box;
+    padding: 80px 20px 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+}
+
+ .hello .wrap .unseo .name {
+    font-size: 60px;
+    color: #d2c8d8;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 62px;
+    margin: 12px 0 7px 0;
+    text-shadow: 2px 2px #000;
+    font-weight: 500;
+}
+.hello .wrap .name span {
+    color: #dd455e;
+}
+.hello .wrap .name .small_planet {
+    position: relative;
+}
+.hello .wrap .name .small_planet .planet {
+    position: absolute;
+    right: 497px;
+    top: 124px;
+}
+.hello .wrap .name .small_planet .line {
+    position: absolute;
+    right: 378px;
+    top: -56px;
+}
+.hello .wrap .unseo .job {
+    color: #dd455e;
+    height: 44px;
+    background: rgba(12, 13, 13, .6);
+    display: inline-block;
+    font-size: 31px;
+    margin-bottom: 40px;
+    line-height: 47px;
+    letter-spacing: -0.4px;
+    padding:0 12px;
+}
+
+.hello .wrap .unseo .me{
+    background:url('./../img/profile_img.jpg') no-repeat center -60px;
+    background-size:660px;
+
+}
+
+.hello .wrap .profile {
+    padding-right: 5px;
+}
+.hello .wrap .profile li {
+    background: url('./../img/ico_about_profile.png') no-repeat right;
+    padding-right: 29px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #000;
+}
+.hello .wrap .profile li:last-child {
+    margin-bottom: 60px;
+}
+.hello .wrap .profile li span {} .hello .wrap .academic {
+    background: url('./../img/academic_bar.png')no-repeat right 0;
+    padding-right: 26px;
+    margin-right:6px;
+    padding:20px 26px 20px 0;
+    background-size: auto 100%;
+}
+.hello .wrap .academic li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 35px;
+    letter-spacing: -0.4px;
+    position: relative;
+}
+.hello .wrap .academic li span {
+    position: absolute;
+    right:-34px;
+    top: 0;
+
+}
+.hello .wrap .academic li div {
+    font-size: 18px;
+    color: rgba(255, 255, 255, .8);
+}
+.hello .wrap .academic  li .dec {
+    font-size:14px;
+}
+
+.hello .wrap .academic li div:nth-child(2) {
+    padding-right: 2px;
+}
+.hello .wrap .academic li .data {
+    font-size: 12px;
+    margin-bottom: 13px;
+}
+.hello .wrap .academic li .import {
+    font-size: 18px;
+}
+.hello .wrap .academic li .import strong {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+.hello .wrap .academic li:last-child div{
+    color: #1a171a;
+    font-size: 20px;
+    background: #fff;
+    display: inline-block;
+    text-align: center;
+    padding:8px 20px 6px;
+    font-weight: bold;
+}
+/*skill*/
+
+.skill {
+    padding: 0 0 0 20px;
+}
+
+.skill > h2 {
+    margin-top: 80px;
+}
+.skill ul {
+    overflow: hidden;
+}
+ .skill ul li:first-child {
+    margin-right: 0;
+}
+ .skill ul li {
+    float: right;
+    position: relative;
+    text-align: center;
+    margin-right: 39px;
+}
+.skill ul li a {
+    color: #dfd0d3;
+    display: block;
+    font-size: 14px;
+}
+.skill ul li a .tit {
+    margin-top: 15px;
+}
+.skill ul li a > div {
+    text-align: center;
+    width: 100%;
+}
+.skill ul li a .basic {
+
+}
+.skill ul li a .over {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.skill ul li a .over {
+    opacity: 0;
+}
+.skill ul li a:hover .basic {
+    opacity: 0;
+    transition: all 1000ms;
+}
+.skill ul li a:hover .over {
+    opacity: 1;
+    transition: all 1000ms;
+}
+/*recent*/
+
+.recent {
+    padding: 100px 0 80px 20px;
+    background:url('./../img/bg_work_star.png')no-repeat bottom left;
+}
+.recent > h2 {
+
+}
+.recent ul {
+    position: relative;
+    background:url('./../img/academic_bar.png') no-repeat right 0;
+    background-size:1px 100%;
+    padding:60px 0;
+    margin-right: 150px;
+
+}
+
+.recent ul li p{
+    font-size:14px;
+    line-height: 22px;
+}
+.recent ul li {
+    text-align: right;
+    margin-bottom: 30px;
+    padding-right:190px;
+    position: relative;
+    height:300px;
+}
+.recent ul li .data {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.4px;
+}
+.recent ul li .tit {
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: -0.4px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+.recent ul li .type {
+    font-size: 12px;
+    color: #594c60;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+}
+.recent ul li a {
+    position: absolute;
+    right: -150px;
+    top: 0;
+    opacity: 0.8;
+}
+.recent ul li a:hover {
+    opacity: 1;
+    transition: opacity 800ms;
+
+}
+.recent ul li:nth-child(2) a img {
+    transform:scale(0.8);
+}
+.recent ul li:nth-child(3) a img {
+    transform:scale(0.5);
+}
+.recent ul li:nth-child(4) a img {
+    transform:scale(0.9);
+}
+
+
+.recent ul li:last-child {
+    margin-bottom: 0;
+}
+/*contact*/
+
+.contact {
+    max-width: 2560px;
+    min-width: 1280px;
+    height: 100%;
+    background: #1a171a;
+    /* For browsers that do not support gradients */
+    
+    background: -webkit-linear-gradient(#1a171a, #59686c);
+    /* For Safari 5.1 to 6.0 */
+    
+    background: -o-linear-gradient(#1a171a, #59686c);
+    /* For Opera 11.1 to 12.0 */
+    
+    background: -moz-linear-gradient(#1a171a, #59686c);
+    /* For Firefox 3.6 to 15 */
+    
+    background: linear-gradient(#1a171a, #59686c);
+    /* Standard syntax */
+
+}
+.contact .wrap {
+    background: url('./../img/star.png') no-repeat;
+    padding-top: 584px;
+    max-width:1280px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.contact .wrap h2 {
+    text-align: left;
+    border-left: 8px solid #594c60;
+    border-right: none;
+}
+.contact .wrap .title {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.contact .wrap div.rocket {
+    position:absolute;
+    left:50%;
+    top:100vh;
+    transition:top 1400ms cubic-bezier(0.680, 0, 0.450, 0.955);;
+}
+.contact.rocket_motion .wrap div.rocket {
+    top:0;
+}
+.contact .wrap img.rocket {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 160px 0 0;
+    margin: 0 0 0 -58.5px;
+    z-index: 3;
+}
+.contact .wrap .rocket img.rocket {} .contact .wrap .rocket .bg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: -190px 0 0 -420px;
+}
+.contact .wrap .rocket .bg img {
+    position: absolute;
+    left: 50%;
+    top: 530px;
+}
+.contact .wrap .rocket .bg .bg_pink {
+    position: static;
+}
+.contact .wrap .rocket .bg .light00 {
+    margin-left: -48px;
+}
+.contact .wrap .rocket .bg .light01 {
+    margin-left: -8.5px;
+    margin-top: 10px;
+}
+.contact .wrap .rocket .bg .light02 {
+    margin-left: -1px;
+    margin-top: 30px;
+}
+.contact form {
+    margin: 0 auto;
+    padding:0 20px 80px;
+    box-sizing:border-box;
+    position: relative;
+    z-index: 4;
+    background:  url('./../img/mountain.png') no-repeat center bottom;
+}
+.contact form .form_wrap {
+    width: 480px;
+}
+.contact form .form_wrap ul li {
+    margin-bottom: 14px;
+    position: relative;
+}
+.contact form .form_wrap .message {
+    position: relative;
+}
+.contact form .form_wrap ul li label,
+.contact form .form_wrap .message label {
+    background: #232122;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 800ms;
+    font-size:0;
+}
+.contact form .form_wrap ul li:hover label,
+.contact form .form_wrap .message:hover label {
+    opacity: 1;
+}
+.contact form .form_wrap ul li input,
+.contact form .form_wrap textarea#message {
+    background: #232122;
+    /* For browsers that do not support gradients */
+    
+    background: -webkit-linear-gradient(left, #232122, rgba(0, 0, 0, 0));
+    /* For Safari 5.1 to 6.0 */
+    
+    background: -o-linear-gradient(right, #232122, rgba(0, 0, 0, 0));
+    /* For Opera 11.1 to 12.0 */
+    
+    background: -moz-linear-gradient(right, #232122, rgba(0, 0, 0, 0));
+    /* For Firefox 3.6 to 15 */
+    
+    background: linear-gradient(to right, #232122, rgba(0, 0, 0, 0));
+    /* Standard syntax */
+    
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: #efefed;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 1000ms;
+    position: relative;
+    z-index: 2;
+}
+.contact form .form_wrap textarea#message {
+    display: block;
+    min-height: 240px;
+    width: 100%;
+    color:#efefed;;
+}
+.contact form div .btn_submit{
+    border-radius:22px;
+    display:inline-block;
+    margin:18px 0 0;
+    position:relative;
+    overflow:hidden;
+    background: linear-gradient(to right, #fff, rgba(0, 0, 0, 0));
+    height: 36px;
+    font-size:16px;
+    width: 100px;
+    color:#000;
+    border:1px solid;
+    /* Standard syntax */
+}
+.contact form div .btn_submit:hover{
+    background: #232122;
+    color:#fff;
+    transition:background 800ms;
+}
+
+.contact form div .btn_submit a span:first-child {
+    background: url('./../img/send.png') no-repeat 85% center;   
+    display:block;
+    font-size:16px;
+    padding:12px 60px 8px 20px;
+    position:relative;
+    z-index:2;
+}
+
+.contact form div .btn_submit a span:last-child {
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.7);
+    transition:all 800ms;
+}
+.contact form div .btn_submit a:hover span:first-child{
+    color:rgba(0,0,0,.6);
+    display: block;
+
+}
+.contact form div .btn_submit a:hover span:last-child{
+    top:0;
+
+}
+
+/*footer*/
+footer {
+    background:#000;
+
+}
+footer > div{
+    color:rgba(250,250,250,.4);
+    overflow:hidden;
+    width:100%;
+    max-width:1280px;
+    margin:0 auto;
+    box-sizing:border-box;  
+    padding:20px 20px 18px; 
+}
+footer .copyright {
+    float:left;
+}
+footer .email {
+    float:right;
+}
