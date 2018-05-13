@@ -1,0 +1,283 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>타자연습</title>
+		<meta name="generator" content="editplus">
+		<meta name="author" content="">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
+
+		<style>
+			body {background:#efefed;}
+			#wrap {margin:40px auto 0;width:600px;}
+			.typing .string_box {}
+			.typing .string_box > div,
+			.typing .string_box > div input {background:#fff;border:1px solid #ccc;font-size:14px;text-align:center;line-height:32px;padding:4px 20px;}
+			.typing .string_box .view {color:#666;margin:0 0 4px;}
+			.typing .string_box .user {position:relative;min-height:32px;}
+			.typing .string_box .user input {background:transparent;border:0 none;box-sizing:border-box;outline:none;position:absolute;left:0;top:0;width:100%;height:100%;}
+			.status {font-size:12px;}
+			.status ul {padding:0;margin:0;}
+			.status ul li {list-style-type:none;overflow:hidden;padding:8px 12px 0;position:relative;}
+			.status ul li > div {float:left;line-height:32px;height:32px;}
+			.status ul li .tit {color:#666;overflow:hidden;width:10%;}
+			.status ul li .progress {float:left;width:90%;}
+			.status ul li .progress_bar {background:rgba(250,250,250,.6);border:1px solid #fff;border-radius:6px;box-sizing:border-box;overflow:hidden;position:relative;width:88%;height:12px;margin:10px 0;}
+			.status ul li .progress_bar span {background:#00abcd;position:absolute;left:0;top:0;width:10%;height:100%;transition:all 400ms;}
+			.status ul li .progress > span {width:10%;position:absolute;right:0;top:8px;}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			/*
+				기능
+				0. 랜덤으로 문장 뿌려주기
+				1. 사용자의 키보드 입력
+				2. 키코드 들어올 때마다 확인
+				3. 틀리면 빨간색 맞을때까지 빨간색
+				4. 한문장을 정확히 쓴 후 엔터치면 정확도/평균정확도/현재속도/최고속도 측정
+			*/
+						
+			$(document).ready(function(){//마크업이 로드됏을때 실행해야되는 코드들
+				reset();
+				/*사용자의 키보드 입력*/
+				$(window).keyup(function(event){
+					inputStr = $('.typing .string_box .user input').val(); //input에 입력한 텍스트 가져오기
+					strChk(); //맞는 지 틀린 지 실시간 check
+					if(event.keyCode == 13){ // enter 입력 시 체크
+						if(inputStr != '') result();
+						// 엔터키를 한 번만 입력했는데, keycode 13번 이벤트가 2번 들어오는 버그가 있어 조건문 추가.
+						// 첫번째 엔터 이벤트가 들어올 때, result()내의 reset() 함수를 실행하기 때문에 inputStr을 리셋시킴. 
+						// 두번째 엔터 이벤트가 들어올 때, inputStr이 리셋되어 있는 상태로 들어오기 때문에, 이 때에는 result() 함수를 실행하지 않도록 if 조건문으로 처리하여 해당 이슈 수정. 
+					}
+				});
+			});
+			
+			var httpChkTrue = 0; // 사용자가 입력하여 맞은 글자수.
+			var time = 0;
+			var timer;
+			var ChkNum = 0; // 엔터 친 갯수
+
+			var possibleResult = true; // 결과를 출력해도 되는지 사용하는 플래그. true/false
+
+			// 랜덤으로 문장 뿌려주기
+			var randomStr = [//문장의 리스트
+					"아무것도 필요 없어 대체 뭐가 더",
+					"필요할 수 있겠어 난 그냥 뭐라도",
+					"해야겠단 생각에",
+					"집 밖을 나갔을 뿐인데",
+					"니가 언짢아하면 난 할 말이 없어",
+					"너는 열두 시가 되면",
+					"전화기를 안 받아",
+					"그러다 세 시 아님 다섯 시에",
+					"문자가 와",
+					"어쩌구저쩌구 방금 자다 깼어",
+					"이거 듣는 사람",
+					"그녀가 클럽에 있었단 건",
+					"비밀로 해 줘",
+					"왜냐면 난 걔를 좋아해",
+					"걔가 어떤 앤지 알고서도 좋아해",
+					"걔가 다른 남잘 만나는 걸",
+					"알고 있지 나는",
+					"근데 걔는 내가 모를 줄",
+					"아는 만큼 꽤 순수해",
+					"가슴의 찢어짐을 이기는 건 너",
+					"답장의 기다림을 이기는 건 너",
+					"너 그래 너 바로 너야",
+					"필요할 때만 넌",
+					"나를 사용해도 좋아",
+					"너 정도 여자 만나려면",
+					"어디까지 감당해야 하니",
+					"오늘은 또 어디 가니",
+					"세상은 원래 이런 건가 봐",
+					"사랑은 원래 이런 건가 봐",
+					"너는 블로거 같아",
+					"좋은 곳을 많이 알지",
+					"나랑 간 줄 알고",
+					"너는 말실수를 하지",
+					"세상은 원래 이런 건가 봐",
+					"사랑은 원래 이런 건가 봐",
+					"아무것도 필요 없어 대체 뭐가 더",
+					"필요할 수 있겠어 난 그냥 뭐라도",
+					"해야겠단 생각에",
+					"집 밖을 나갔을 뿐인데",
+					"니가 나를 안 만나 줬잖아",
+					"내가 화를 내면",
+					"너는 내게 찬물을 끼얹네",
+					"너는 여신이니까 그래도 돼",
+					"너는 여신이니까 여신이니까",
+					"여신이니까",
+					"너는 되고 나는 다 안 되는 게",
+					"법이니까",
+					"how much is it",
+					"이제 돈으로 사겠어",
+					"정말 되게 쉽지",
+					"옷 사준다는 말에",
+					"바로 답장해서 고마워",
+					"백화점을 전부 사줄게",
+					"그게 얼마든",
+					"돈도 필요 없어 대체 얼마를 더",
+					"필요할 수 있겠어 난 그냥 널 봐서",
+					"강아지마냥 기분이 좋아",
+					"귀여워할 때만",
+					"나를 사용해도 좋아",
+					"너 정도 여자 만나려면",
+					"어디까지 감당해야 하니",
+					"오늘은 또 어디 가니",
+					"세상은 원래 이런 건가 봐",
+					"사랑은 원래 이런 건가 봐",
+					"너는 블로거 같아",
+					"좋은 곳을 많이 알지",
+					"나랑 간 줄 알고",
+					"너는 말실수를 하지",
+					"세상은 원래 이런 건가 봐",
+					"사랑은 원래 이런 건가 봐",
+					"Girl what am I to you",
+					"so tell me what I gotta do",
+					"니 연락 한 번에 녹아내리는",
+					"날 알잖아 넌",
+					"Girl what am I to you",
+					"나 보고 더 어떡하라구",
+					"그냥 좋은 사람이고만 싶진",
+					"않은데 이젠",
+					"너 정도 여자 만나려면",
+					"어디까지 감당해야 하니",
+					"오늘은 또 어디 가니",
+					"세상은 원래 이런 건가 봐",
+					"사랑은 원래 이런 건가 봐",
+					"너는 블로거 같아",
+					"좋은 곳을 많이 알지",
+					"나랑 간 줄 알고",
+					"너는 말실수를 하지",
+					"세상은 원래 이런 건가 봐",
+					"사랑은 원래 이런 건가 봐"
+			];
+			var inputStr;
+			var a;
+			function randomStrNum(){ //함수 정의
+				//Math.random():0~1 랜덤한 숫자를 반환
+				//Math.floor() 실수 - > 정수 http://www.w3schools.com/jsref/jsref_random.asp
+				//length :길이 - 갯수
+				//배열의 인덱스(몇번째) 찾기 :배열이름[인덱스]
+				//.append() = innerhtml
+				a = Math.floor(Math.random()*randomStr.length); //지역변수 선언
+				$('.typing .string_box .view').html(randomStr[a]);//랜덤스트링의 a번째를 찾아주어라
+			}
+			//functionName(); //함수실행
+			//$(function(){}); 도큐먼트 레디
+			//=========================문장 뿌려주기 끝=========================//
+			function reset(){
+				randomStrNum();
+				$('.typing .string_box .user input').val('');
+				httpChkTrue = 0;
+				possibleResult = true;
+				// ChkNum = 0;
+				clearInterval(timer);
+				timer = setInterval(function(){myTimer()}, 10);
+			}
+			/*사용자가 입력한 텍스트 체크하기*/
+			function strChk(){//string check
+				//사용자가 입력한 텍스트와 뿌려진 텍스트 비교
+				//randomStr[a]; == view에 뿌려진 텍스트
+				httpChkTrue = 0;
+				inputStr; // 사용자가 입력한 텍스트
+
+				var x='';
+				for(var i = 0; i < randomStr[a].length; i++){
+					if(randomStr[a].substring(i,i+1) != inputStr.substring(i,i+1) && i <inputStr.length){ //!부정문 체크할게 잇어서 if 와 else의 자리 바꿈 &&=교집합
+						x += '<span style="color:red">'+randomStr[a].substring(i,i+1)+'</span>';
+					}else{
+						x += randomStr[a].substring(i,i+1);
+					}
+					//감싼 view의 내용을 뺏다가 체크한 결과를 넣어주기 체크한 결과가 틀렸으면 틀린 글자에 color:red 맞았으면 그냥 문자열로 출력
+					//substring()//음절을 체크 띄어쓰기 까지
+					// 전체 글자수 - (전체-내가입력한 글자수) - 틀린글자수
+					httpChkTrue = randomStr[a].length - (randomStr[a].length - inputStr.length) - $('.view span').length;  
+				}//view에 입력된 텍스트를 한글자 씩 체크
+				$('.typing .string_box .view').empty().append(x); //view 비우기 .empty(); 비우기
+			};
+			/* 엔터 클릭 시 결과값 체크하기 */
+			function result(){	
+				possibleResult = false;		
+				var a1 = 0, 
+					a2 = 0, 
+					a3 = 0;
+				ChkNum++; // 엔터 입력한 횟수 ChkNum++ = ChkNum+1
+				// 정확도 : a1
+				// console.log('전체 글자수 : ' + randomStr[a].length + ' | 맞은 글자수 : ' + httpChkTrue)
+				// 전체:맞은 = 100:x
+				// x = 맞은/전체*100
+				a1 = httpChkTrue / randomStr[a].length * 100;
+				a1 = Math.floor(a1);
+				// 평균 정확도 : a2
+				// (엔터를누르기전의정확도*(엔터누른횟수-1) + 현재정확도 ) / 엔터누른횟수
+				var oldA1 = parseInt($('.status li').eq(1).find('.txt').html()); // 엔터를누르기전의정확도
+				// .html() : 선택자 안에 있는 html //innerHtml
+				// parseInt() : 괄호 안의 내용을 정수화
+				// oldA1.substring(0,oldA1.length-1) // string.substring(0,1) : 0~1 번째 글자만 노출
+				a2 = (oldA1*(ChkNum-1) + a1) / ChkNum;
+				a2 = Math.floor(a2); // 버림
+				
+				// 현재속도 : a3 
+				// 입력 문자열 길이 / 입력시간 * 60초 
+				a3 = httpChkTrue / time * 6000; 
+				a3 = Math.floor(a3);
+				$('.status li').eq(0).find('.progress_bar span').css('width', a1 + '%');
+				$('.status li').eq(0).find('.txt').html(a1 + '%');
+				$('.status li').eq(1).find('.progress_bar span').css('width', a2 + '%');
+				$('.status li').eq(1).find('.txt').html(a2 + '%');
+				$('.status li').eq(2).find('.progress_bar span').css('width', a3/10 + '%'); //100:x = 1000:a3
+				$('.status li').eq(2).find('.txt').html(a3 + '타/분');	
+				
+				time = 0;
+				if($('.typing .string_box .user input').val() != '') reset();
+			}
+			function myTimer(){
+				if(inputStr != '') time++;				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="typing">
+				<div class="string_box">
+					<div class="view"></div>
+					<div class="user"><input class = "httpInputString" type="text" /></div>
+				</div>
+				<div class="status">
+					<ul>
+						<li>
+							<div class="tit">정확도</div>
+							<div class="progress">
+								<div class="progress_bar">
+									<span style="width:0%;"></span>
+								</div>
+								<span class="txt">0%</span>
+							</div>
+						</li>
+						<li>
+							<div class="tit">평균 정확도</div>
+							<div class="progress">
+								<div class="progress_bar">
+									<span style="width:0%;"></span>
+								</div>
+								<span class="txt">0%</span>
+							</div>
+						</li>
+						<li>
+							<div class="tit">현재속도</div>
+							<div class="progress">
+								<div class="progress_bar">
+									<span style="width:0%;"></span>
+								</div>
+								<span class="txt">타/분</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
